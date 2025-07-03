@@ -184,21 +184,21 @@ interactive_tree() {
 # Auto-Update Check (einfacher GitHub raw check)
 #############################
 
-check_update() {
-  local url="https://raw.githubusercontent.com/deinusername/wauw-monitor/main/wauw.sh"
-  local latest
-  latest=$(curl -s "$url" || echo "")
-  if [[ -z "$latest" ]]; then return; fi
-  local current_hash
-  current_hash=$(sha256sum "$0" | awk '{print $1}')
-  local latest_hash
-  latest_hash=$(echo "$latest" | sha256sum | awk '{print $1}')
-  if [[ "$current_hash" != "$latest_hash" ]]; then
-    yad --question --title="Update verfügbar" --text="Ein Update für WAUW ist verfügbar.\nMöchtest du es jetzt herunterladen und ersetzen?" && \\
-    curl -s "$url" -o "$0" && chmod +x "$0" && yad --info --text="Update erfolgreich. Bitte neu starten."
-    exit 0
-  fi
-}
+#check_update() {
+#  local url="https://raw.githubusercontent.com/deinusername/wauw-monitor/main/wauw.sh"
+#  local latest
+#  latest=$(curl -s "$url" || echo "")
+#  if [[ -z "$latest" ]]; then return; fi
+#  local current_hash
+#  current_hash=$(sha256sum "$0" | awk '{print $1}')
+#  local latest_hash
+#  latest_hash=$(echo "$latest" | sha256sum | awk '{print $1}')
+#  if [[ "$current_hash" != "$latest_hash" ]]; then
+#    yad --question --title="Update verfügbar" --text="Ein Update für WAUW ist verfügbar.\nMöchtest du es jetzt herunterladen und ersetzen?" && \\
+#    curl -s "$url" -o "$0" && chmod +x "$0" && yad --info --text="Update erfolgreich. Bitte neu starten."
+#    exit 0
+#  fi
+#}
 
 #############################
 # Haupt UI Loop
