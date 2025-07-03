@@ -1,0 +1,238 @@
+#!/usr/bin/env bash
+
+# WAUW – Ultimate File System Analyzer mit GUI, Live-Updates, Export & Tray
+# Für Garuda Linux / Arch-basierte Systeme
+
+set -euo pipefail
+IFS=$'\n\t'
+
+#############################
+# Benötigte Tools & Setup
+#############################
+
+REQUIRED_TOOLS=(
+  du find stat awk jq inotifywait file sha256sum sort df tree yad yay bat lolcat tmux xdg-open pandoc convert notify-send
+)
+
+missing_tools=()
+for tool in "${REQUIRED_TOOLS[@]}"; do
+  if ! command -v "$tool" &>/dev/null; then
+    missing_tools+=("$tool")
+  fi
+done
+
+if (( ${#missing_tools[@]} )); then
+  echo -e "\n❗ Fehlende Tools:"
+  for t in "${missing_tools[@]}"; do echo " - $t"; done
+  read -rp "Möchtest du sie jetzt mit yay installieren? [J/n]: " ans
+  if [[ "$ans" =~ ^[JjYy]?$ ]]; then
+    yay -S --needed "${missing_tools[@]}"
+  else
+    echo "Abbruch, benötigte Tools fehlen."
+    exit 1
+  fi
+fi
+
+#############################
+# Pfad prüfen
+#############################
+
+if [[ $# -lt 1 ]]; then
+  yad --error --title="Fehler" --text="Bitte einen Pfad angeben:\nwauw <pfad>"
+  exit 1
+fi
+
+PATH_TO_ANALYZE="$1"
+if [[ ! -e "$PATH_TO_ANALYZE" ]]; then
+  yad --error --title="Fehler" --text="Pfad existiert nicht:\n$PATH_TO_ANALYZE"
+  exit 1
+fi
+
+#############################
+# Tempfiles und Globals
+#############################
+
+TMPDIR=$(mktemp -d)
+GENERAL_FILE="$TMPDIR/general.txt"
+TOPFILES_FILE="$TMPDIR/topfiles.txt"
+TOPFOLDERS_FILE="$TMPDIR/topfolders.txt"
+FILETYPES_FILE="$TMPDIR/filetypes.txt"
+TREE_FILE="$TMPDIR/tree.txt"
+EXPORT_DIR="$TMPDIR/export"
+
+mkdir -p "$EXPORT_DIR"
+
+#############################
+# Daten sammeln Funktionen
+#############################
+
+gather_general_info() {
+  {
+    echo "Pfad: $PATH_TO_ANALYZE"
+    echo "Größe: $(du -sh "$PATH_TO_ANALYZE" 2>/dev/null | cut -f1)"
+    echo "Dateien: $(find "$PATH_TO_ANALYZE" -type f 2>/dev/null | wc -l)"
+    echo "Ordner: $(find "$PATH_TO_ANALYZE" -type d 2>/dev/null | wc -l)"
+    echo "Dateisystem: $(df -T "$PATH_TO_ANALYZE" | awk 'NR==2{print $2}') (frei: $(df -h "$PATH_TO_ANALYZE" | awk 'NR==2{print $4}'))"
+    echo "Rechte: $(stat -c '%A' "$PATH_TO_ANALYZE")"
+    echo "Eigentümer: $(stat -c '%U:%G' "$PATH_TO_ANALYZE")"
+    if [[ -f "$PATH_TO_ANALYZE" ]]; then
+      echo "SHA256: $(sha256sum "$PATH_TO_ANALYZE" | awk '{print $1}')"
+    else
+      echo "SHA256: Nicht anwendbar (kein File)"
+    fi
+  } | lolcat
+}
+
+gather_top_files() {
+  find "$PATH_TO_ANALYZE" -type f -exec du -h {} + 2>/dev/null | sort -hr | head -n 10
+}
+
+gather_top_folders() {
+  du -h --max-depth=1 "$PATH_TO_ANALYZE" 2>/dev/null | sort -hr | head -n 10
+}
+
+gather_filetypes() {
+  find "$PATH_TO_ANALYZE" -type f 2>/dev/null | sed 's/.*\.//' | awk '{count[$1]++} END {for (ext in count) printf("%-8s %s\n", ext, count[ext])}' | sort -k2 -nr | head -n 10
+}
+
+gather_tree() {
+  tree -L 3 "$PATH_TO_ANALYZE" 2>/dev/null | head -n 50
+}
+
+#############################
+# UI Aktualisierung
+#############################
+
+update_files() {
+  gather_general_info > "$GENERAL_FILE"
+  gather_top_files > "$TOPFILES_FILE"
+  gather_top_folders > "$TOPFOLDERS_FILE"
+  gather_filetypes > "$FILETYPES_FILE"
+  gather_tree > "$TREE_FILE"
+}
+
+#############################
+# Exportfunktionen
+#############################
+
+export_to_markdown() {
+  local out="$EXPORT_DIR/analysis.md"
+  {
+    echo "# WAUW Analyse für $PATH_TO_ANALYZE"
+    echo
+    echo "## Allgemein"
+    cat "$GENERAL_FILE"
+    echo
+    echo "## Top Dateien"
+    cat "$TOPFILES_FILE"
+    echo
+    echo "## Top Ordner"
+    cat "$TOPFOLDERS_FILE"
+    echo
+    echo "## Dateitypen"
+    cat "$FILETYPES_FILE"
+    echo
+    echo "## Struktur (Tree)"
+    cat "$TREE_FILE"
+  } > "$out"
+  notify-send "WAUW" "Markdown exportiert: $out"
+}
+
+export_to_html() {
+  local mdfile="$EXPORT_DIR/analysis.md"
+  local htmlfile="$EXPORT_DIR/analysis.html"
+  if [[ ! -f "$mdfile" ]]; then
+    export_to_markdown
+  fi
+  pandoc "$mdfile" -o "$htmlfile"
+  notify-send "WAUW" "HTML exportiert: $htmlfile"
+}
+
+export_to_pdf() {
+  local mdfile="$EXPORT_DIR/analysis.md"
+  local pdffile="$EXPORT_DIR/analysis.pdf"
+  if [[ ! -f "$mdfile" ]]; then
+    export_to_markdown
+  fi
+  pandoc "$mdfile" -o "$pdffile"
+  notify-send "WAUW" "PDF exportiert: $pdffile"
+}
+
+#############################
+# System Tray (Notification Area)
+#############################
+
+show_tray() {
+  yad --notification --text="WAUW Monitoring: $PATH_TO_ANALYZE" --command="bash $0 \"$PATH_TO_ANALYZE\""
+}
+
+#############################
+# Interaktive Baumansicht mit Öffnen
+#############################
+
+interactive_tree() {
+  local files
+  files=$(tree -f -L 3 "$PATH_TO_ANALYZE" 2>/dev/null)
+  local selected
+  selected=$(echo "$files" | yad --list --width=800 --height=600 --title="WAUW Baumansicht (Klicke zum Öffnen)" --column="Dateien" --mouse --print-column=1)
+  if [[ -n "$selected" ]]; then
+    xdg-open "$selected" &
+  fi
+}
+
+#############################
+# Auto-Update Check (einfacher GitHub raw check)
+#############################
+
+check_update() {
+  local url="https://raw.githubusercontent.com/deinusername/wauw-monitor/main/wauw.sh"
+  local latest
+  latest=$(curl -s "$url" || echo "")
+  if [[ -z "$latest" ]]; then return; fi
+  local current_hash
+  current_hash=$(sha256sum "$0" | awk '{print $1}')
+  local latest_hash
+  latest_hash=$(echo "$latest" | sha256sum | awk '{print $1}')
+  if [[ "$current_hash" != "$latest_hash" ]]; then
+    yad --question --title="Update verfügbar" --text="Ein Update für WAUW ist verfügbar.\nMöchtest du es jetzt herunterladen und ersetzen?" && \\
+    curl -s "$url" -o "$0" && chmod +x "$0" && yad --info --text="Update erfolgreich. Bitte neu starten."
+    exit 0
+  fi
+}
+
+#############################
+# Haupt UI Loop
+#############################
+
+main_ui() {
+  update_files
+  while true; do
+    choice=$(yad --form --title="WAUW Hauptmenü" --width=400 --height=300 --field="Pfad" --field="Aktion:CB" "$PATH_TO_ANALYZE" "Allgemein!Top Dateien!Top Ordner!Dateitypen!Struktur!Baum interaktiv!Export Markdown!Export HTML!Export PDF!Beenden")
+    [[ -z "$choice" ]] && break
+    case "$choice" in
+      Allgemein) yad --text-info --title="Allgemeine Infos" --width=600 --height=400 --filename="$GENERAL_FILE" ;;
+      "Top Dateien") yad --text-info --title="Top Dateien" --width=600 --height=400 --filename="$TOPFILES_FILE" ;;
+      "Top Ordner") yad --text-info --title="Top Ordner" --width=600 --height=400 --filename="$TOPFOLDERS_FILE" ;;
+      Dateitypen) yad --text-info --title="Dateitypen" --width=600 --height=400 --filename="$FILETYPES_FILE" ;;
+      Struktur) yad --text-info --title="Struktur (Tree)" --width=600 --height=400 --filename="$TREE_FILE" ;;
+      "Baum interaktiv") interactive_tree ;;
+      "Export Markdown") export_to_markdown ;;
+      "Export HTML") export_to_html ;;
+      "Export PDF") export_to_pdf ;;
+      Beenden) break ;;
+    esac
+    update_files
+  done
+}
+
+#############################
+# Programmstart
+#############################
+
+check_update &
+show_tray &
+
+main_ui
+
+# Cleanup beim Beenden
+rm -rf "$TMPDIR"
