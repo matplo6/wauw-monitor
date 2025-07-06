@@ -1,7 +1,6 @@
-Mods count: 586
+Mods count: 598
 
 neoforge-21.1.185 (modloader)                                                  : neoforge                                    
-(Neoforge) M.P world craft.jar                                                 : mpworldcraft (MCreator mod)                 
 [1.21.1 ONLY]_Many_More_Ores_2.0_Full_Release-NeoForge.jar                     : many_more_ores                              
 [1.21.1] SecurityCraft v1.10.jar                                               : securitycraft                                : securitycraft.mixins.json
 [NeoForge 1.21.1]It's All About Money Reload[3.1.0].jar                        : its_all_about_money_reload (MCreator mod)   
@@ -20,7 +19,6 @@ advanced_music_mod-neoforge-2.0.2+1.21.jar                                     :
 Advanced_PaintingsV0.8_neoforge_1.21.1.jar                                     : advanced_paintings                          
 AdvancedAE-1.2.5-1.21.1.jar                                                    : advanced_ae                                  : mixins.aae.json
 AdvancedBackups-neoforge-1.21-3.7.1.jar                                        : advancedbackups                             
-advancedgolems-1.21.1-1.5.2-neoforge.jar                                       : advancedgolems                               : advancedgolems.mixins.json
 AdvancedLootInfo-neoforge-1.21.1-1.1.8.jar                                     : ali                                          : ali.mixins.json, ali.neoforge.mixins.json
 AdvancedPeripherals-1.21.1-0.7.51b.jar                                         : advancedperipherals                         
 AdvancedSticks-1.21-(v.3.0.3-NEO).jar                                          : advancedsticks                              
@@ -44,6 +42,7 @@ aeinfinitybooster-neoforge-1.21.1-1.0.0.52.jar                                 :
 AestheticGems-1.7.0-1.21.1-NeoForge.jar                                        : pfw_aesthetic_gems (MCreator mod)           
 AI-Improvements-1.21-0.5.3.jar                                                 : aiimprovements                              
 AkashicTome-1.8-29.jar                                                         : akashictome                                 
+AlchemistArsenal-Neoforge1.21.1-v1.0.0.5.jar                                   : alkhars                                     
 All-The-Wood-Weve-Got-NeoForge-2.2.2.jar                                       : woodwevegot                                 
 all_items_craftable-1.0.2 (eng)-neoforge-1.21.1.jar                            : all_items_craftable (MCreator mod)          
 All_RecipesV1.2.4(1.21.1).jar                                                  : all_recipes (MCreator mod)                  
@@ -60,7 +59,6 @@ almanac-1.21.x-neoforge-1.0.2.jar                                              :
 almostunified-neoforge-1.21.1-1.2.6.jar                                        : almostunified                                : almostunified-common.mixins.json, almostunified-neoforge.mixins.json
 amendments-1.21-1.2.24-neoforge.jar                                            : amendments                                   : amendments.mixins.json, amendments-common.mixins.json
 anvianslib-neoforge-1.21-1.2.jar                                               : anvianslib                                   : anvianslib.mixins.json, anvianslib.neoforge.mixins.json
-Apotheosis-1.21.1-8.3.6.jar                                                    : apotheosis                                   : apotheosis.mixins.json
 ApothicAttributes-1.21.1-2.8.1.jar                                             : apothic_attributes                           : apothic_attributes.mixins.json
 ApothicEnchanting-1.21.1-1.4.3.jar                                             : apothic_enchanting                           : apothic_enchanting.mixins.json
 ApothicSpawners-1.21.1-1.3.1.jar                                               : apothic_spawners                             : apothic_spawners.mixins.json
@@ -87,6 +85,7 @@ ars_nouveau-1.21.1-5.9.1.jar                                                   :
 ars_ocultas-1.21.1-2.1.0.jar                                                   : ars_ocultas                                 
 ars_technica-1.21.1-2.2.2.jar                                                  : ars_technica                                 : ars_technica.mixins.json
 ars_unification-1.2.14.jar                                                     : ars_unification                              : ars_unification.mixins.json
+arsenalandanvil-1.0.0.jar                                                      : arsenalandanvil                             
 arseng-2.1.1-beta.jar                                                          : arseng                                       : arseng.mixins.json
 arsnumerichud-1.0.1.jar                                                        : arsnumerichud                                : arsnumerichud.mixins.json
 artifacts-neoforge-13.0.6.jar                                                  : artifacts                                    : mixins.artifacts.common.json, mixins.artifacts.neoforge.json
@@ -108,6 +107,7 @@ bibliocraft-1.21.1-1.5.4.jar                                                   :
 bibliowoods-1.21.1-1.5.2.jar                                                   : bibliowoods                                 
 bigger_ae2-1.21.1-1.4.8.jar                                                    : bigger_ae2                                   : bigger_ae2.mixins.json
     /META-INF/jarjar/Registrate-MC1.21-1.3.0+67.jar                           
+BlackwolfLibrary-neoforge-1.21.1-1.0.7.jar                                     : blackwolflibrary                            
 blockui-1.0.205-1.21.1.jar                                                     : blockui                                     
 blueflame-1.21.1-1.1.1.jar                                                     : blueflame                                    : blueflame.mixin.json
 bookshelf-neoforge-1.21.1-21.1.65.jar                                          : bookshelf                                    : bookshelf.mixins.json, bookshelf.neoforge.mixins.json
@@ -135,6 +135,8 @@ cloth-config-15.0.140-neoforge.jar                                             :
 CloudGlass-1.21.1-1.0.1.jar                                                    : cloudglass                                  
 Clumps-neoforge-1.21.1-19.0.0.1.jar                                            : clumps                                       : clumps.mixins.json
 cmlinkedremote-1.0.1.jar                                                       : cmlinkedremote                              
+cobblegengalore-1.21.1-0.2.2.jar                                               : cobblegengalore                             
+cobweb-neoforge-1.21-1.3.3.jar                                                 : cobweb                                       : cobweb.mixins.json, cobweb.neoforge.mixins.json
 CodeChickenLib-1.21.1-4.6.1.524.jar                                            : codechickenlib                              
     /META-INF/jarjar/Quack-0.4.10.105.jar                                     
 collective-1.21.1-8.3.jar                                                      : collective                                   : collective_neoforge.mixins.json
@@ -160,7 +162,6 @@ ConstructionSticks-1.21.1-1.2.1.jar                                            :
 Controlling-neoforge-1.21.1-19.0.5.jar                                         : controlling                                  : controlling.mixins.json, controlling.neoforge.mixins.json
 cookingforblockheads-neoforge-1.21.1-21.1.15.jar                               : cookingforblockheads                         : cookingforblockheads.mixins.json, cookingforblockheads.neoforge.mixins.json
 Corgilib-NeoForge-1.21.1-5.0.0.4.jar                                           : corgilib                                     : corgilib-common.mixins.json
-cosmeticarmorreworked-1.21.1-v1-neoforge.jar                                   : cosmeticarmorreworked                       
 crafting_on_a_stick-1.21.0.2.jar                                               : crafting_on_a_stick                         
 craftingtweaks-neoforge-1.21.1-21.1.5.jar                                      : craftingtweaks                               : craftingtweaks.mixins.json, craftingtweaks.neoforge.mixins.json
 craftitall-1.1.3.jar                                                           : craftitall                                  
@@ -172,6 +173,9 @@ create-1.21.1-6.0.6.jar                                                        :
     /META-INF/jarjar/flywheel-neoforge-1.21.1-1.0.4.jar                        : flywheel                                     : flywheel.backend.mixins.json, flywheel.impl.mixins.json
     /META-INF/jarjar/Registrate-MC1.21-1.3.0+62.jar                           
     /META-INF/jarjar/Ponder-NeoForge-1.21.1-1.0.56.jar                         : ponder                                       : ponder.mixins.json, ponder-common.mixins.json
+create-dragons-plus-1.6.1.jar                                                  : create_dragons_plus                          : create_dragons_plus.mixins.json
+    /META-INF/jarjar/conditional-mixin-neoforge-0.6.4.jar                      : conditional_mixin                           
+create-enchantment-industry-2.1.6.jar                                          : create_enchantment_industry                  : create_enchantment_industry.mixins.json
 create_ae2recipes-0.1.0+1.21.1.jar                                             : create_ae2recipes                           
 create_mf-0.9.4-neoforge-1.21.1.jar                                            : create_mf (MCreator mod)                    
 createaddition-1.4.2.jar                                                       : createaddition                               : createaddition.mixins.json
@@ -250,6 +254,8 @@ ExtremeSoundMuffler-3.49.2_NeoForge-1.21.jar                                   :
 factory_blocks-neoforge-1.4.0+mc1.21.1.jar                                     : factory_blocks                              
 FarmersDelight-1.21.1-1.2.8.jar                                                : farmersdelight                               : farmersdelight.mixins.json
 farmingforblockheads-neoforge-1.21.1-21.1.8.jar                                : farmingforblockheads                         : farmingforblockheads.mixins.json, farmingforblockheads.neoforge.mixins.json
+farsight-1.21-3.8.jar                                                          : farsight_view                                : farsight.mixins.json
+    /META-INF/jarjar/jctools-core-4.0.5.jar                                   
 fastasyncworldsave-1.21-2.4.jar                                                : fastasyncworldsave                           : fastasyncworldsave.mixins.json
 FastFurnace-1.21.1-9.0.0.jar                                                   : fastfurnace                                  : fastfurnace.mixins.json
 FastSuite-1.21.1-6.0.4.jar                                                     : fastsuite                                    : fastsuite.mixins.json
@@ -289,10 +295,12 @@ generatorgalore-1.21.1-1.5.0.jar                                               :
 getittogetherdrops-neoforge-1.21-1.3.2.jar                                     : getittogetherdrops                           : getittogetherdrops.mixins.json
 Glassential-renewed-neoforge-1.21.1-3.1.7.jar                                  : glassential                                  : glassential.mixins.json, glassential.neoforge.mixins.json
 Glodium-1.21-2.2-neoforge.jar                                                  : glodium                                     
+GooberArsenal-Neoforge-1.1.2.jar                                               : gooberarsenal                               
 GravitationalModulatingAdditionalUnit-1.21.1-6.3.jar                           : gmut                                        
 guideme-21.1.13.jar                                                            : guideme                                     
 handcrafted-neoforge-1.21.1-4.0.3.jar                                          : handcrafted                                  : handcrafted-common.mixins.json
 hardenedarmadillos-1.21.1-0.2.0.jar                                            : hardenedarmadillos                           : hardenedarmadillos.mixin.json
+harvest-with-ease-neoforge-1.21-9.4.0.jar                                      : harvest_with_ease                            : harvest_with_ease.mixins.json, harvest_with_ease.neoforge.mixins.json
 headbash-1.0.0.jar                                                             : headbash                                    
 health_tag-1.0.4-1-neoforge-1.21.1.jar                                         : health_tag                                  
 healthcommand-neoforge-1.21.1-1.4.1.jar                                        : healthcommand                               
@@ -301,6 +309,7 @@ heyberryshutup-1.21.0-2.0.4.jar                                                :
 HostileNeuralNetworks-1.21.1-6.2.0.jar                                         : hostilenetworks                              : hostilenetworks.mixins.json
 hyperbox-1.21-6.0.0.1.jar                                                      : hyperbox                                     : hyperbox.mixins.json
     /META-INF/jarjar/infiniverse-1.21-2.0.1.0.jar                              : infiniverse                                 
+IceAndFireCE-1.0-1.21.1-neoforge.jar                                           : iceandfire                                   : iceandfire.mixins.json
 Iceberg-1.21.1-neoforge-1.3.2.jar                                              : iceberg                                      : iceberg.mixins.json, iceberg.neoforge.mixins.json
 illagerwarship-1.0.1-neoforge-1.21.1.jar                                       : illagerwarship                              
 imfast-NEOFORGE-1.0.2.jar                                                      : imfast                                       : imfast.mixins.json
@@ -437,22 +446,26 @@ monocle-0.2.1.ms.jar                                                           :
         /META-INF/jarjar/glsl-transformation-lib-0.2.0-20.ge3cb096.jar        
 monolib-neoforge-1.21.1-2.1.0.jar                                              : monolib                                      : monolib.mixins.json, monolib.neoforge.mixins.json
 moonlight-1.21-2.19.4-neoforge.jar                                             : moonlight                                    : moonlight.mixins.json, moonlight-common.mixins.json
+More Crafting Tables-neoforge-1.21-7.0.2.jar                                   : mctb                                        
 more-kills-more-damage-v1.0.jar                                                : more_kills_more_damage                      
-more_armor_trims-1.4.1-1.21.jar                                                : more_armor_trims                            
 more_beautiful_torches-merged-1.21-3.0.0.jar                                   : more_beautiful_torches                       : neoforge-more_beautiful_torches.mixins.json, neoforge-more_beautiful_torches.neoforge.mixins.json
 more_bows_and_arrows-merged-1.21.1-4.0.0.jar                                   : more_bows_and_arrows                         : neoforge-more_bows_and_arrows.mixins.json, neoforge-more_bows_and_arrows.neoforge.mixins.json
 more_building_blocks-1.9.5-neoforge-1.21.1.jar                                 : more_building_blocks                        
 more_commands-1.2.1-neoforge-1.21.1.jar                                        : more_commands (MCreator mod)                
 more_food-neoforge-2.1.0+1.21.1.jar                                            : more_food                                   
+more_minerals-1.5.2 snapshot-neoforge-1.21.1.jar                               : more_minerals (MCreator mod)                
 more_mobs-v1.5.6-mc1.14-1.21.7-mod.jar                                         : moremobs                                    
 more_ores_more_gems-1.1.3-release-neoforge-1.21.1.jar                          : more_ores_more_gems (MCreator mod)          
 more_tree_sizes-1.4.0-neoforge-1.21.1.jar                                      : more_tree_sizes (MCreator mod)              
 MoreBeeInfo-neoforge-1.21-1.4.jar                                              : bee_info                                     : bee_info.mixins.json, bee_info.neoforge.mixins.json
 moredragoneggs-5.0.jar                                                         : moredragoneggs                               : moredragoneggs.mixins.json
 morejs-neoforge-1.21-0.14.1.jar                                                : morejs                                       : morejs.mixins.json
+MoreLeads-neoforge-1.21-1.2.0.jar                                              : moreleads                                    : moreleads.mixins.json
 moreoverlays-1.23.2-mc1.21-neoforge.jar                                        : moreoverlays                                
 morered-1.21.1-6.0.0.3.jar                                                     : morered                                      : morered.mixins.json
+MoreRed-CCT-Compat-1.21.1-1.3.0.jar                                            : moreredxcctcompat                           
 MoreStructureProcessors-neoforge-2.0.1.jar                                     : moreprocessors                              
+MoreTNT NeoForge 1.21 v1.1.1.jar                                               : moretnt                                     
 moretraps-neoforge-1.21-0.1.2.jar                                              : moretraps                                    : moretraps.mixins.json, moretraps.neoforge.mixins.json
 morevanillapotions-NEOFORGE-1.21.1-1.0.jar                                     : morevanillapotions                          
 MoreVanillaTools-21.1.2.jar                                                    : morevanillatools                            
@@ -461,7 +474,6 @@ mostructures-neoforge-1.5.0+1.21.jar                                           :
     /META-INF/jars/omegaconfig-neoforge-1.5.1.jar                              : omegaconfig                                  : omega-config.mixins.json
 MouseTweaks-neoforge-mc1.21-2.26.1.jar                                         : mousetweaks                                  : mousetweaks.mixins.json
 movecommand-neoforge-0.1.jar                                                   : movecommandneoforge (MCreator mod)          
-mrbeast_dimension-v1.4.0-neoforge-1.21.1.jar                                   : mrbeast_dimension (MCreator mod)            
 mss-1.3.5-1.21.jar                                                             : mss                                          : mss-neoforge.mixins.json, mss-common.mixins.json
 multipiston-1.2.57-1.21.1.jar                                                  : multipiston                                 
 MultiSummon-2.0-neoforge-1.21.1.jar                                            : multisummon                                 
@@ -469,6 +481,7 @@ mvs-4.3.0-1.21.jar                                                             :
 MysticalAgradditions-1.21.1-8.0.7.jar                                          : mysticalagradditions                        
 MysticalAgriculture-1.21.1-8.0.17.jar                                          : mysticalagriculture                         
 MysticalCustomization-1.21.1-6.0.0.jar                                         : mysticalcustomization                       
+nametagtweaks-1.21.1-4.0.jar                                                   : nametagtweaks                                : nametagtweaks_neoforge.mixins.json
 NaturesAura-41.7.jar                                                           : naturesaura                                 
 NaturesCompass-1.21.1-3.0.3-neoforge.jar                                       : naturescompass                              
 NeoAuth-1.21.1-1.0.0.jar                                                       : neo_auth                                     : neoauth.mixins.json
@@ -628,6 +641,7 @@ Structory_1.21.x_v1.3.11.jar                                                   :
 Structory_Towers_1.21.x_v1.0.12.jar                                            : structory_towers                            
 structurize-1.0.779-1.21.1-snapshot.jar                                        : structurize                                 
 stylecolonies-1.15.13-1.21.1-snapshot.jar                                      : stylecolonies                               
+Super Factory Manager (SFM)-MC1.21.1-4.22.0.jar                                : sfm                                          : sfm.mixins.json
 superflatworldnoslimes-1.21.1-3.5.jar                                          : superflatworldnoslimes                       : superflatworldnoslimes_neoforge.mixins.json
 supermartijn642configlib-1.1.8-neoforge-mc1.21.jar                             : supermartijn642configlib                    
 supermartijn642corelib-1.1.18a-neoforge-mc1.21.jar                             : supermartijn642corelib                       : supermartijn642corelib.mixins.json
@@ -671,6 +685,8 @@ twilightforest-1.21.1-4.7.3196-universal.jar                                   :
 underground_village-1.5.4.jar                                                  : underground_village                          : underground_village.mixins.json
 UndergroundVillages-neoforge-1.21.1-4.0.2.jar                                  : underground_villages                        
 universalgrid-neoforge-1.21.1-0.1.3.jar                                        : universalgrid                                : universalgrid.mixins.json
+uranus-2.3.1-1.21.1-neoforge.jar                                               : uranus                                       : uranus.mixins.json, uranus-neoforge.mixins.json
+    /META-INF/jars/architectury-neoforge-13.0.8.jar                            : architectury                                 : architectury.mixins.json, architectury-common.mixins.json
 utilitarian-1.21.1-0.14.0.jar                                                  : utilitarian                                  : utilitarian.mixin.json
 utilityvest-1.0.2_neoforge_1.21.1.jar                                          : utilityvest                                 
 valhelsia_core-neoforge-1.21.1-1.1.5.jar                                       : valhelsia_core                               : valhelsia_core-common.mixins.json, valhelsia_core.mixins.json
@@ -689,7 +705,6 @@ worldedit-mod-7.3.8.jar                                                        :
     /META-INF/jars/fabric-events-interaction-v0-0.7.10+e633f883d1.jar          : fabric-events-interaction-v0                 : fabric-events-interaction-v0.mixins.json
     /META-INF/jars/fabric-lifecycle-events-v1-2.3.11+8f3583aed1.jar            : fabric-lifecycle-events-v1                   : fabric-lifecycle-events-v1.mixins.json
     /META-INF/jars/fabric-networking-api-v1-4.2.0+ab7edbacd1.jar               : fabric-networking-api-v1                     : fabric-networking-api-v1.mixins.json
-worldedit_items-2.0-neoforge-1.21.1.jar                                        : worldedit_items                             
 worldplaytime-1.2.2-1.21-NEOFORGE.jar                                          : worldplaytime                                : worldplaytime.mixins.json
 worldstripper-1.21-5.0.0-neoforge.jar                                          : worldstripper                               
 wscommands-2.0.0-neoforge-1.20.5+.jar                                          : wscommands                                  
