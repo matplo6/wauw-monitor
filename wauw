@@ -185,7 +185,7 @@ interactive_tree() {
 #############################
 
 check_update() {
-  local url="https://raw.githubusercontent.com/deinusername/wauw-monitor/main/wauw.sh"
+  local url="https://raw.githubusercontent.com/matplo6/wauw-monitor/main/wauw"
   local latest
   latest=$(curl -s "$url" || echo "")
   if [[ -z "$latest" ]]; then return; fi
